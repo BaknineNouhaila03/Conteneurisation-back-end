@@ -1,4 +1,4 @@
-package project.repository;
+package project.conteneurisation.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import project.conteneurisation.model.Note;

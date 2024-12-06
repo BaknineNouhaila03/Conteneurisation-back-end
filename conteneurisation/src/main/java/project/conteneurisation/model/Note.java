@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String cours;
 
