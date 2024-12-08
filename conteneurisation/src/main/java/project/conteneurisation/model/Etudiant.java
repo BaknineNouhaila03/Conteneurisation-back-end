@@ -1,6 +1,7 @@
 package project.conteneurisation.model;
 
 import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -23,7 +24,7 @@ public class Etudiant {
 
     @Column(name = "date_creation", updatable = false, nullable = false)
     @CreationTimestamp
-    private LocalDateTime dateCreation;
+    private LocalDate dateCreation;
 
     @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL)
     private List<Note> notes;
@@ -44,11 +45,11 @@ public class Etudiant {
         this.nom = nom;
     }
 
-    public LocalDateTime getDateCreation() {
+    public LocalDate getDateCreation() {
         return dateCreation;
     }
 
-    public void setDateCreation(LocalDateTime dateCreation) {
+    public void setDateCreation(LocalDate dateCreation) {
         this.dateCreation = dateCreation;
     }
 

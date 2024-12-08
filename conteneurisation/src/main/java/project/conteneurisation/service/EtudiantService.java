@@ -1,5 +1,6 @@
 package project.conteneurisation.service;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +21,7 @@ public class EtudiantService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Etudiant createEtudiant(String nom) {
-        Etudiant etudiant = new Etudiant();
-        etudiant.setNom(nom); 
+    public Etudiant createEtudiant(Etudiant etudiant ) {
         return etudiantRepository.save(etudiant);
     }
     public List<Etudiant> getAllEtudiants() {
@@ -35,6 +34,22 @@ public class EtudiantService {
             throw new IllegalArgumentException("Etudiant with ID " + id + " does not exist.");
         }
     }
+    public Etudiant updateEtudiantById(int id, Etudiant newEtudiant) {
+        Optional<Etudiant> optionalEtudiant = etudiantRepository.findById(id);
+    
+        if (optionalEtudiant.isPresent()) {
+            Etudiant existingEtudiant = optionalEtudiant.get();
+            existingEtudiant.setNom(newEtudiant.getNom()); 
+            return etudiantRepository.save(existingEtudiant);
+        } else {
+            throw new IllegalArgumentException("Etudiant with ID " + id + " does not exist.");
+        }
+    }
+    public Etudiant getEtudiantById(int id){
+        Optional<Etudiant> optionalEtudiant = etudiantRepository.findById(id);
+         return optionalEtudiant.get();
+    }
+    
 
     
 }
