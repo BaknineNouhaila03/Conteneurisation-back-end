@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ConteneurisationApplication<conteneurisation>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "project.conteneurisation.ConteneurisationApplication",
+            "projectName": "conteneurisation",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

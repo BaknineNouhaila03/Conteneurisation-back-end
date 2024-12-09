@@ -1,5 +1,8 @@
 package project.conteneurisation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,8 +19,9 @@ public class Note {
     private Float valeur;
 
     @ManyToOne
-    @JoinColumn(name = "etudiant_id", nullable = false)
-    private Etudiant etudiant;
+    @JoinColumn(name = "etudiant_id")
+    @JsonIgnore  
+    private Etudiant etudiant; // Reference the Etudiant entity directly
 
     public int getId() {
         return id;
