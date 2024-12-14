@@ -1,20 +1,22 @@
-FROM maven:3.8.4-openjdk-25-slim AS build
+FROM maven:3.8.8-eclipse-temurin-17 AS build
+
 WORKDIR /app
 
-RUN addgroup --system spring && adduser --system spring --ingroup spring
-USER spring:spring
-
-COPY pom.xml .
+COPY pom.xml ./
 RUN mvn dependency:go-offline
 
 COPY src ./src
-RUN mvn validate
+RUN mvn clean package -DskipTests
 
-FROM openjdk:25-slim
+FROM eclipse-temurin:17-jre-alpine
+
 WORKDIR /app
 
-COPY target/conteneurisation-0.0.1-SNAPSHOT.jar app.jar 
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
-EXPOSE 8080
+COPY --from=build /app/target/*.jar app.jar
+
+USER appuser:appgroup
 
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
