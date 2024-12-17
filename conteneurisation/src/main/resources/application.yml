@@ -2,7 +2,7 @@ spring:
   datasource:
     password: nouhaila
     username: postgres
-    url: jdbc:postgresql://172.22.0.2:5432/projet
+    url: jdbc:postgresql://database:5432/projet  
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
