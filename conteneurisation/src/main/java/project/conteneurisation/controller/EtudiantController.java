@@ -17,7 +17,7 @@ import project.conteneurisation.model.Etudiant;
 import project.conteneurisation.service.EtudiantService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://baknine.frontend.com")
 @RequestMapping("/api/etudiants")
 public class EtudiantController {
     @Autowired

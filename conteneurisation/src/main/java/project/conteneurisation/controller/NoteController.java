@@ -18,7 +18,7 @@ import project.conteneurisation.model.Note;
 import project.conteneurisation.service.NoteService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://baknine.frontend.com")
 @RequestMapping("/api/etudiants/{studentId}/notes")
 public class NoteController {
     
