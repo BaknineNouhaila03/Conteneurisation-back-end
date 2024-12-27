@@ -18,7 +18,7 @@ import project.conteneurisation.model.Note;
 import project.conteneurisation.service.NoteService;
 
 @RestController
-@CrossOrigin(origins ="http://baknine.frontend.com")
+@CrossOrigin(origins ="http://minikube.baknine.frontend.com")
 @RequestMapping("/api/etudiants/{studentId}/notes")
 public class NoteController {
     
@@ -28,7 +28,7 @@ public class NoteController {
     // Correct the method to filter notes by studentId
     @GetMapping
     public List<Note> getNotesForEtudiant(@PathVariable int studentId) {
-        return noteService.getNotesForEtudiant(studentId); // Fetch notes for a specific Etudiant
+        return noteService.getNotesForEtudiant(studentId); 
     }
 
     @PostMapping
